@@ -2,6 +2,7 @@
 @import "font-awesome-sprockets"
 @import "font-awesome"
 @import "inscripcion"
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300)
 
 @media (max-width: 992px)
 	.navbar-header
@@ -138,6 +139,14 @@ body
 	.collapse.in 
 		display: block !important
 
+//paginacion
+.pagination > li > a, .pagination > li > span
+	color: $rojo-cvo
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus
+	background-color: $rojo-cvo
+	border-color: $rojo-cvo
+
 //pre-inscripción
 .pre-inscripcion
 	background-color: #FE0000
@@ -151,3 +160,19 @@ body
 		font-size: 1.8rem
 	img
 		margin-bottom: 50px
+
+//footer
+footer
+	border-top: 4px solid #F39C1A
+	margin-top: 60px
+	padding: 10px 0
+	background-color: #003
+	color: whitesmoke
+	width: 100%
+	bottom: 0
+	span
+		font-size: 1.5rem
+		font-family: 'Open Sans', sans-serif
+	img
+		width: 100px
+		height: auto

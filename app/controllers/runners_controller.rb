@@ -4,7 +4,7 @@ class RunnersController < ApplicationController
   # GET /runners
   # GET /runners.json
   def index
-    @runners = Runner.all.order("LOWER(apellido_paterno) ASC").page(params[:page]).per_page(3)
+    @runners = Runner.all.order("LOWER(apellido_paterno) ASC").page(params[:page]).per_page(25)
     @corredores = Runner.all.order("LOWER(apellido_paterno) ASC")
     @category = Category.all
     respond_to do |format|

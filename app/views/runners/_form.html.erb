@@ -1,0 +1,67 @@
+<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-lg-6">
+  <%= form_for(@runner) do |f| %>
+    <% if @runner.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@runner.errors.count, "error") %> debes completar los siguientes campos:</h2>
+
+        <ul>
+        <% @runner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class=" form-group">
+      <%= f.label 'Nombre Completo' %>
+      <%= f.text_field :nombre, :class => 'form-control' %>
+    </div>
+    <div class=" form-group">
+      <%= f.label 'Edad' %>
+      <%= f.number_field :edad, :class => 'form-control' %>
+    </div>
+    <div class=" form-group">
+      <%= f.label 'Categoría' %>
+      <%= f.collection_select(:category_id, Category.all, :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
+    </div>
+    <div class=" form-group">
+      <%= f.label 'Club o Team' %>
+      <%= f.text_field :club, :class => 'form-control' %>
+    </div>
+    <div class=" form-group">
+      <%= f.label 'Ciudad' %>
+      <%= f.text_field :ciudad, :class => 'form-control' %>
+    </div>
+    <div class=" form-group">
+      <%= f.label 'País' %>
+      <%= f.text_field :pais, :class => 'form-control' %>
+    </div>
+    <div class=" form-group">
+      <%= f.label 'Correo Electrónico' %>
+      <%= f.text_field :correo, :class => 'form-control' %>
+    </div>
+    <div class=" form-group">
+      <%= f.label 'Alérgico a' %>
+      <%= f.text_field :alergico, :class => 'form-control' %>
+    </div>
+
+    <h3>DECLARACIÓN JURADA DEL COMPETIDOR(A)</h3>
+
+    <p>Declaro que conozco  las condiciones de exigencia física de la competencia y de igual manera indico que mi estado físico-mental son compatibles con esta actividad.  Siendo de mi absoluta responsabilidad cualquier accidente, enfermedad o insuficiencia que tenga relación con mi salud.</p>
+    <p>Me obligo a cumplir las instrucciones, disposiciones, reglamentos y ordenes entregadas por la organización que sean necesarias para cumplir la correcta realización del evento.</p>
+    <p>Declaro estar de acuerdo que en caso de suspender, cancelar o aplazar la competencia por condiciones climáticas o fenómenos naturales adversos, mi inscripción no será reembolsable.</p>
+    <p>Tengo pleno conocimiento que participar en la competencia, implica potenciales peligros y riesgos.  Por lo tanto, renuncio expresamente y desligo de toda responsabilidad civil a los organizadores, auspiciadores y patrocinadores de cualquier accidente o situación de toda índole que me pudiera ocurrir antes, durante y después de la competencia.</p>
+    <p>Reconozco que tengo exclusiva responsabilidad por mis pertenencias personales y equipo deportivo durante la competencia y actividades del evento.</p>
+    <p>En caminos públicos me comprometo a mantener siempre la derecha y respetar las leyes del tránsito.</p>
+    <p>Autorizo a la organización para que disponga libremente de las imágenes fotográficas o de videos en donde aparezca mi participación para que sean transmitidas por televisión, radio, prensa escrita o digital.</p>
+    <p>Acepto y tomo conocimiento de los artículos indicados en el Reglamento de la Competencia y que lo indicado en esta declaración jurada es condición necesaria para participar.</p>
+
+    <div class="">
+      <%= f.check_box :declaracion %>
+      <%= f.label 'Acepto' %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Inscribir', :class => 'btn btn-success btn-lg' %>
+    </div>
+  <% end %>
+</div>
